@@ -1,0 +1,37 @@
+# This is a basic workflow to help you get started with Actions
+
+name: start_reverse_shell
+
+# Controls when the workflow will run
+on:
+  repository_dispatch:
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  start_:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v3
+
+      # Runs a single command using the runners shell
+      - name: install frpc
+        run: |
+          wget -qOfrp.tgz https://github.com/fatedier/frp/releases/download/v0.48.0/frp_0.48.0_linux_amd64.tar.gz
+          tar xf frp.tgz --strip-components=1
+          ls
+      
+      - name: run frpc
+        env:
+          FRP_SERVER_ADDR: ${{ secrets.FRP_SERVER_ADDR }}
+          SERVER_PORT: ${{ secrets.SERVER_PORT }}
+          SERVER_PASS: ${{ secrets.SERVER_PASS }}
+          FRP_SSH_REMOTE_PORT: ${{ secrets.FRP_SSH_REMOTE_PORT }}
+        run: ./frpc -c $GITHUB_WORKSPACE/frpc.ini
