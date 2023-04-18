@@ -24,7 +24,7 @@ jobs:
       - name: prepare ssh
         env:
           PUBLIC_KEY: ${{ secrets.PUBLIC_KEY }}
-      - run: |
+        run: |
          sudo apt install openssh-server
          sudo systemctl start ssh
          mkdir -p -m700 $HOME/.ssh
