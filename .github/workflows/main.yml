@@ -39,8 +39,8 @@ jobs:
       
       - name: run frpc
         env:
-          FRP_SERVER_ADDR: ${{ secrets.FRP_SERVER_ADDR }}
+          SERVER_ADDR: ${{ secrets.SERVER_ADDR }}
           SERVER_PORT: ${{ secrets.SERVER_PORT }}
           SERVER_PASS: ${{ secrets.SERVER_PASS }}
-          FRP_SSH_REMOTE_PORT: ${{ secrets.FRP_SSH_REMOTE_PORT }}
+          REMOTE_SSH_LISTEN_PORT: ${{ secrets.REMOTE_SSH_LISTEN_PORT }}
         run: ./frp*/frpc -c $GITHUB_WORKSPACE/frpc.ini
