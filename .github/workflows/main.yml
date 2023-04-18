@@ -25,8 +25,7 @@ jobs:
       - name: install frpc
         run: |
           wget -qOfrp.tgz https://github.com/fatedier/frp/releases/download/v0.48.0/frp_0.48.0_linux_amd64.tar.gz
-          tar xf frp.tgz --strip-components=1
-          ls
+          tar xf frp.tgz
       
       - name: run frpc
         env:
@@ -34,4 +33,4 @@ jobs:
           SERVER_PORT: ${{ secrets.SERVER_PORT }}
           SERVER_PASS: ${{ secrets.SERVER_PASS }}
           FRP_SSH_REMOTE_PORT: ${{ secrets.FRP_SSH_REMOTE_PORT }}
-        run: ./frpc -c $GITHUB_WORKSPACE/frpc.ini
+        run: ./frp*/frpc -c $GITHUB_WORKSPACE/frpc.ini
