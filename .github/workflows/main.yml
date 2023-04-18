@@ -20,6 +20,16 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
+      
+      - name: prepare ssh
+        env:
+          PUBLIC_KEY: ${{ secrets.PUBLIC_KEY }}
+      - run: |
+         sudo apt install openssh-server
+         sudo systemctl start ssh
+         mkdir -p -m700 $HOME/.ssh
+         echo $PUBLIC_KEY > $HOME/.ssh/authorized_keys
+         whoami
 
       # Runs a single command using the runners shell
       - name: install frpc
