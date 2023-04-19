@@ -38,7 +38,7 @@ jobs:
           tar xf frp.tgz
       
       - name: install transmission
-          sudo apt install transmission transmission-daemon
+        run: sudo apt install transmission transmission-daemon
       
       - name: run frpc
         env:
