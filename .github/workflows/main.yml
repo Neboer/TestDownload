@@ -37,6 +37,9 @@ jobs:
           wget -qOfrp.tgz https://github.com/fatedier/frp/releases/download/v0.48.0/frp_0.48.0_linux_amd64.tar.gz
           tar xf frp.tgz
       
+      - name: install transmission
+          sudo apt install transmission transmission-daemon
+      
       - name: run frpc
         env:
           SERVER_ADDR: ${{ secrets.SERVER_ADDR }}
