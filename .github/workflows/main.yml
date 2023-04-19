@@ -43,4 +43,21 @@ jobs:
           SERVER_PORT: ${{ secrets.SERVER_PORT }}
           SERVER_PASS: ${{ secrets.SERVER_PASS }}
           REMOTE_SSH_LISTEN_PORT: ${{ secrets.REMOTE_SSH_LISTEN_PORT }}
-        run: ./frp*/frpc -c $GITHUB_WORKSPACE/frpc.ini
+        run: ./frp*/frpc -c $GITHUB_WORKSPACE/frpc.ini &
+        
+      - run: sleep 5.9h
+      - run: sleep 5.9h
+      - run: sleep 5.9h
+      - run: sleep 5.9h
+      - run: sleep 5.9h
+      - run: sleep 5.9h
+      - run: sleep 5.9h
+      - run: sleep 5.9h
+      - run: sleep 5.9h
+      - run: sleep 5.9h
+      - run: sleep 5.9h
+      - run: sleep 5.9h
+      - run: sleep 5.9h
+      - run: sleep 5.9h
+      - run: sleep 5.9h
+      - run: sleep 5.9h
