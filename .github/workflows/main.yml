@@ -34,33 +34,14 @@ jobs:
       # Runs a single command using the runners shell
       - name: install frpc
         run: |
-          wget -qOfrp.tgz https://github.com/fatedier/frp/releases/download/v0.48.0/frp_0.48.0_linux_amd64.tar.gz
+          wget -qOfrp.tgz https://github.com/fatedier/frp/releases/download/v0.51.2/frp_0.51.2_windows_amd64.zip
           tar xf frp.tgz
-      
-      - name: install transmission
-        run: sudo apt install transmission transmission-daemon
-      
+
       - name: run frpc
         env:
           SERVER_ADDR: ${{ secrets.SERVER_ADDR }}
           SERVER_PORT: ${{ secrets.SERVER_PORT }}
           SERVER_PASS: ${{ secrets.SERVER_PASS }}
           REMOTE_SSH_LISTEN_PORT: ${{ secrets.REMOTE_SSH_LISTEN_PORT }}
-        run: ./frp*/frpc -c $GITHUB_WORKSPACE/frpc.ini &
+        run: echo $SERVER_PASS && ./frp*/frpc -c $GITHUB_WORKSPACE/frpc.ini
         
-      - run: sleep 5.9h
-      - run: sleep 5.9h
-      - run: sleep 5.9h
-      - run: sleep 5.9h
-      - run: sleep 5.9h
-      - run: sleep 5.9h
-      - run: sleep 5.9h
-      - run: sleep 5.9h
-      - run: sleep 5.9h
-      - run: sleep 5.9h
-      - run: sleep 5.9h
-      - run: sleep 5.9h
-      - run: sleep 5.9h
-      - run: sleep 5.9h
-      - run: sleep 5.9h
-      - run: sleep 5.9h
