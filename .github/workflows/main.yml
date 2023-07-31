@@ -34,7 +34,7 @@ jobs:
       # Runs a single command using the runners shell
       - name: install frpc
         run: |
-          wget -qOfrp.tgz https://github.com/fatedier/frp/releases/download/v0.51.2/frp_0.51.2_windows_amd64.zip
+          wget -qOfrp.tgz https://github.com/fatedier/frp/releases/download/v0.51.2/frp_0.51.2_linux_amd64.tar.gz
           tar xf frp.tgz
 
       - name: run frpc
